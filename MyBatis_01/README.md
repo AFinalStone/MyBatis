@@ -97,7 +97,7 @@ public class User {
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <!-- 为这个mapper指定一个唯一的namespace，namespace的值习惯上设置成包名+sql映射文件名，这样就能够保证namespace的值是唯一的
-例如namespace="me.gacl.mapping.userMapper"就是me.gacl.mapping(包名)+userMapper(userMapper.xml文件去除后缀)
+例如namespace="com.shi.mapping.userMapper"就是com.shi.mapping(包名)+userMapper(userMapper.xml文件去除后缀)
  -->
 <mapper namespace="com.shi.mapping.userMapper">
     <!-- 在select标签中编写查询的SQL语句， 设置select标签的id属性为getUser，id属性值必须是唯一的，不能够重复
@@ -137,7 +137,7 @@ public class User {
 
     <mappers>
         <!-- 注册userMapper.xml文件，
-        userMapper.xml位于me.gacl.mapping这个包下，所以resource写成me/gacl/mapping/userMapper.xml-->
+        userMapper.xml位于com.shi.mapping这个包下，所以resource写成me/gacl/mapping/userMapper.xml-->
         <mapper resource="com/shi/mapping/userMapper.xml"/>
     </mappers>
 
@@ -175,7 +175,7 @@ public class Main {
         SqlSession session = sessionFactory.openSession();
         /**
          * 映射sql的标识字符串，
-         * me.gacl.mapping.userMapper是userMapper.xml文件中mapper标签的namespace属性的值，
+         * com.shi.mapping.userMapper是userMapper.xml文件中mapper标签的namespace属性的值，
          * getUser是select标签的id属性值，通过select标签的id属性值就可以找到要执行的SQL
          */
         String statement = "com.shi.mapping.userMapper.getUser";//映射sql的标识字符串

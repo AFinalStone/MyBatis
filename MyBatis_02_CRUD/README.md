@@ -10,7 +10,7 @@ MyBatis学习总结(二)——使用MyBatis对表执行CRUD操作
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <!-- 为这个mapper指定一个唯一的namespace，namespace的值习惯上设置成包名+sql映射文件名，这样就能够保证namespace的值是唯一的
-例如namespace="me.gacl.mapping.userMapper"就是me.gacl.mapping(包名)+userMapper(userMapper.xml文件去除后缀)
+例如namespace="com.shi.mapping.userMapper"就是com.shi.mapping(包名)+userMapper(userMapper.xml文件去除后缀)
  -->
 <mapper namespace="com.shi.mapping.userMapper">
     <!-- 在select标签中编写查询的SQL语句， 设置select标签的id属性为getUser，id属性值必须是唯一的，不能够重复
@@ -66,7 +66,7 @@ public class TestCRUDByXmlMapper {
         SqlSession sqlSession = MyBatisUtil.getSqlSession(true);
         /**
          * 映射sql的标识字符串，
-         * me.gacl.mapping.userMapper是userMapper.xml文件中mapper标签的namespace属性的值，
+         * com.shi.mapping.userMapper是userMapper.xml文件中mapper标签的namespace属性的值，
          * addUser是insert标签的id属性值，通过insert标签的id属性值就可以找到要执行的SQL
          */
         String statement = "com.shi.mapping.userMapper.addUser";//映射sql的标识字符串
@@ -87,7 +87,7 @@ public class TestCRUDByXmlMapper {
         SqlSession sqlSession = MyBatisUtil.getSqlSession(true);
         /**
          * 映射sql的标识字符串，
-         * me.gacl.mapping.userMapper是userMapper.xml文件中mapper标签的namespace属性的值，
+         * com.shi.mapping.userMapper是userMapper.xml文件中mapper标签的namespace属性的值，
          * updateUser是update标签的id属性值，通过update标签的id属性值就可以找到要执行的SQL
          */
         String statement = "com.shi.mapping.userMapper.updateUser";//映射sql的标识字符串
@@ -107,7 +107,7 @@ public class TestCRUDByXmlMapper {
         SqlSession sqlSession = MyBatisUtil.getSqlSession(true);
         /**
          * 映射sql的标识字符串，
-         * me.gacl.mapping.userMapper是userMapper.xml文件中mapper标签的namespace属性的值，
+         * com.shi.mapping.userMapper是userMapper.xml文件中mapper标签的namespace属性的值，
          * deleteUser是delete标签的id属性值，通过delete标签的id属性值就可以找到要执行的SQL
          */
         String statement = "com.shi.mapping.userMapper.deleteUser";//映射sql的标识字符串
@@ -123,7 +123,7 @@ public class TestCRUDByXmlMapper {
         SqlSession sqlSession = MyBatisUtil.getSqlSession();
         /**
          * 映射sql的标识字符串，
-         * me.gacl.mapping.userMapper是userMapper.xml文件中mapper标签的namespace属性的值，
+         * com.shi.mapping.userMapper是userMapper.xml文件中mapper标签的namespace属性的值，
          * getAllUsers是select标签的id属性值，通过select标签的id属性值就可以找到要执行的SQL
          */
         String statement = "com.shi.mapping.userMapper.getAllUsers";//映射sql的标识字符串
@@ -208,7 +208,7 @@ public interface UserMapperI {
 
     <mappers>
         <!-- 注册userMapper.xml文件，
-        userMapper.xml位于me.gacl.mapping这个包下，所以resource写成me/gacl/mapping/userMapper.xml-->
+        userMapper.xml位于com.shi.mapping这个包下，所以resource写成me/gacl/mapping/userMapper.xml-->
         <mapper resource="com/shi/mapping/userMapper.xml"/>
         <!-- 注册UserMapper映射接口-->
         <mapper class="com.shi.mapping.UserMapperI"/>

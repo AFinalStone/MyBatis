@@ -23,7 +23,7 @@ MyBatis学习总结(三)——优化MyBatis配置文件中的配置
 
     <mappers>
         <!-- 注册userMapper.xml文件，
-        userMapper.xml位于me.gacl.mapping这个包下，所以resource写成me/gacl/mapping/userMapper.xml-->
+        userMapper.xml位于com.shi.mapping这个包下，所以resource写成me/gacl/mapping/userMapper.xml-->
         <mapper resource="com/shi/mapping/userMapper.xml"/>
         <!-- 注册UserMapper映射接口-->
         <mapper class="com.shi.mapping.UserMapperI"/>
@@ -79,7 +79,7 @@ password=123456
 
     <mappers>
         <!-- 注册userMapper.xml文件，
-        userMapper.xml位于me.gacl.mapping这个包下，所以resource写成me/gacl/mapping/userMapper.xml-->
+        userMapper.xml位于com.shi.mapping这个包下，所以resource写成me/gacl/mapping/userMapper.xml-->
         <mapper resource="com/shi/mapping/userMapper.xml"/>
         <!-- 注册UserMapper映射接口-->
         <mapper class="com.shi.mapping.UserMapperI"/>
@@ -148,7 +148,7 @@ parameterType="_User"这样写就简单多了，为了达到这种效果，我�
 
     <mappers>
         <!-- 注册userMapper.xml文件，
-        userMapper.xml位于me.gacl.mapping这个包下，所以resource写成me/gacl/mapping/userMapper.xml-->
+        userMapper.xml位于com.shi.mapping这个包下，所以resource写成me/gacl/mapping/userMapper.xml-->
         <mapper resource="com/shi/mapping/userMapper.xml"/>
         <!-- 注册UserMapper映射接口-->
         <mapper class="com.shi.mapping.UserMapperI"/>
@@ -197,7 +197,7 @@ parameterType="_User"这样写就简单多了，为了达到这种效果，我�
 
     <mappers>
         <!-- 注册userMapper.xml文件，
-        userMapper.xml位于me.gacl.mapping这个包下，所以resource写成me/gacl/mapping/userMapper.xml-->
+        userMapper.xml位于com.shi.mapping这个包下，所以resource写成me/gacl/mapping/userMapper.xml-->
         <mapper resource="com/shi/mapping/userMapper.xml"/>
         <!-- 注册UserMapper映射接口-->
         <mapper class="com.shi.mapping.UserMapperI"/>
