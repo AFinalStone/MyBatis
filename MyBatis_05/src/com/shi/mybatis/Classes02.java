@@ -3,7 +3,7 @@ package com.shi.mybatis;
 import java.util.List;
 
 /**
- * @author gacl
+ * @author AFinalStone
  * 定义class表对应的实体类
  */
 public class Classes02 {

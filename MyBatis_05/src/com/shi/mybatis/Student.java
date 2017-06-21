@@ -1,7 +1,7 @@
 package com.shi.mybatis;
 
 /**
- * @author gacl
+ * @author AFinalStone
  * 定义student表所对应的实体类
  */
 public class Student {

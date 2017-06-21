@@ -21,13 +21,14 @@
         select * from class c, teacher t where c.teacher_id=t.t_id and c.c_id=1
     -->
     <select id="getClass" parameterType="int" resultMap="ClassResultMap">
-        select * from class c, teacher t where c.teacher_id=t.t_id and c.c_id=#{id}
+        select * from class c, teacher t where c.teacher_id = t.t_id and c.c_id = #{id}
     </select>
+
     <!-- 使用resultMap映射实体类和字段之间的一一对应关系 -->
-    <resultMap type="com.shi.mapping..Classes" id="ClassResultMap">
+    <resultMap type="com.shi.mybatis.Classes01" id="ClassResultMap">
         <id property="id" column="c_id"/>
         <result property="name" column="c_name"/>
-        <association property="teacher" javaType="com.shi.mapping..Teacher">
+        <association property="teacher" javaType="com.shi.mybatis.Teacher">
             <id property="id" column="t_id"/>
             <result property="name" column="t_name"/>
         </association>
@@ -42,13 +43,13 @@
         select * from class where c_id=#{id}
     </select>
     <!-- 使用resultMap映射实体类和字段之间的一一对应关系 -->
-    <resultMap type="com.shi.mapping..Classes" id="ClassResultMap2">
+    <resultMap type="com.shi.mybatis.Classes01" id="ClassResultMap2">
         <id property="id" column="c_id"/>
         <result property="name" column="c_name"/>
         <association property="teacher" column="teacher_id" select="getTeacher"/>
     </resultMap>
 
-    <select id="getTeacher" parameterType="int" resultType="com.shi.mapping..Teacher">
+    <select id="getTeacher" parameterType="int" resultType="com.shi.mybatis.Teacher">
         SELECT t_id id, t_name name FROM teacher WHERE t_id=#{id}
     </select>
 
@@ -65,18 +66,19 @@
     <select id="getClass3" parameterType="int" resultMap="ClassResultMap3">
         select * from class c, teacher t,student s where c.teacher_id=t.t_id and c.C_id=s.class_id and  c.c_id=#{id}
     </select>
-    <resultMap type="me.gacl.domain.Classes" id="ClassResultMap3">
+
+    <resultMap type="com.shi.mybatis.Classes02" id="ClassResultMap3">
         <id property="id" column="c_id"/>
         <result property="name" column="c_name"/>
-        <association property="teacher" column="teacher_id" javaType="me.gacl.domain.Teacher">
+        <association property="teacher" column="teacher_id" javaType="com.shi.mybatis.Teacher">
             <id property="id" column="t_id"/>
             <result property="name" column="t_name"/>
         </association>
         <!-- ofType指定students集合中的对象类型 -->
-        <collection property="students" ofType="me.gacl.domain.Student">
+    <!--    <collection property="students" ofType="com.shi.mybatis.Student">
             <id property="id" column="s_id"/>
             <result property="name" column="s_name"/>
-        </collection>
+        </collection>-->
     </resultMap>
 
     <!--
@@ -88,18 +90,18 @@
     <select id="getClass4" parameterType="int" resultMap="ClassResultMap4">
         select * from class where c_id=#{id}
     </select>
-    <resultMap type="me.gacl.domain.Classes" id="ClassResultMap4">
+    <resultMap type="com.shi.mybatis.Classes02" id="ClassResultMap4">
         <id property="id" column="c_id"/>
         <result property="name" column="c_name"/>
-        <association property="teacher" column="teacher_id" javaType="me.gacl.domain.Teacher" select="getTeacher2"></association>
-        <collection property="students" ofType="me.gacl.domain.Student" column="c_id" select="getStudent"></collection>
+        <association property="teacher" column="teacher_id" javaType="com.shi.mybatis.Teacher" select="getTeacher2"></association>
+        <collection property="students" ofType="com.shi.mybatis.Student" column="c_id" select="getStudent"></collection>
     </resultMap>
 
-    <select id="getTeacher2" parameterType="int" resultType="me.gacl.domain.Teacher">
+    <select id="getTeacher2" parameterType="int" resultType="com.shi.mybatis.Teacher">
         SELECT t_id id, t_name name FROM teacher WHERE t_id=#{id}
     </select>
 
-    <select id="getStudent" parameterType="int" resultType="me.gacl.domain.Student">
+    <select id="getStudent" parameterType="int" resultType="com.shi.mybatis.Student">
         SELECT s_id id, s_name name FROM student WHERE class_id=#{id}
     </select>
 </mapper>

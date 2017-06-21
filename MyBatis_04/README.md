@@ -22,7 +22,7 @@ INSERT INTO orders(order_no, order_price) VALUES('cccc', 22);
 package com.shi.mybatis;
 
 /**
- * @author gacl
+ * @author AFinalStone
  * 定义orders表对应的实体类
  */
 public class Order {

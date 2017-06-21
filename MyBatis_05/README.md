@@ -75,7 +75,7 @@ public class Teacher {
 }
 
 ```
-　　2、Classes类，Classes类是class表对应的实体类
+　　2、Classe01s类，Classes01类是class表对应的实体类
 
 ```java
 package com.shi.mybatis;
@@ -128,19 +128,14 @@ public class Classes01 {
 ```
 
 　　在conf.xml文件中注册classMapper.xml
-```xm;
+```xml
+
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
 
     <!-- 引用db.properties配置文件 -->
     <properties resource="db.properties"/>
-
-    <!--不要把typeAliases放在头部或者尾部，否则会报错-->
-    <typeAliases>
-        <!--     <typeAlias type="com.shi.mybatis.User" alias="UserModel"/>-->
-        <package name="com.shi.mybatis"/>
-    </typeAliases>
 
     <!--
         development : 开发模式
@@ -162,15 +157,74 @@ public class Classes01 {
 
 
     <mappers>
-        <!-- 注册classMapper.xml文件，
+        <!-- 注册userMapper.xml文件，
         userMapper.xml位于com.shi.mapping这个包下，所以resource写成com/shi/mapping/orderMapper.xml.xml-->
         <mapper resource="com/shi/mapping/classMapper.xml"/>
     </mappers>
-
-
-
+    
 </configuration>
 
+```
+
+1.4、定义sql映射文件classMapper.xml
+
+```xml
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 为这个mapper指定一个唯一的namespace，namespace的值习惯上设置成包名+sql映射文件名，这样就能够保证namespace的值是唯一的
+例如namespace="com.shi.mapping.classMapper"就是com.shi.mapping(包名)+classMapper(classMapper.xml文件去除后缀)
+ -->
+<mapper namespace="com.shi.mapping.classMapper">
+
+    <!--
+        根据班级id查询班级信息(带老师的信息)
+        ##1. 联表查询
+        SELECT * FROM class c,teacher t WHERE c.teacher_id=t.t_id AND c.c_id=1;
+
+        ##2. 执行两次查询
+        SELECT * FROM class WHERE c_id=1;  //teacher_id=1
+        SELECT * FROM teacher WHERE t_id=1;//使用上面得到的teacher_id
+     -->
+
+    <!--
+    方式一：嵌套结果：使用嵌套结果映射来处理重复的联合结果的子集
+             封装联表查询的数据(去除重复的数据)
+        select * from class c, teacher t where c.teacher_id=t.t_id and c.c_id=1
+    -->
+    <select id="getClass" parameterType="int" resultMap="ClassResultMap">
+        select * from class c, teacher t where c.teacher_id = t.t_id and c.c_id = #{id}
+    </select>
+
+    <!-- 使用resultMap映射实体类和字段之间的一一对应关系 -->
+    <resultMap type="com.shi.mapping.Classes01" id="ClassResultMap">
+        <id property="id" column="c_id"/>
+        <result property="name" column="c_name"/>
+        <association property="teacher" javaType="com.shi.mapping.Teacher">
+            <id property="id" column="t_id"/>
+            <result property="name" column="t_name"/>
+        </association>
+    </resultMap>
+
+    <!--
+    方式二：嵌套查询：通过执行另外一个SQL映射语句来返回预期的复杂类型
+        SELECT * FROM class WHERE c_id=1;
+        SELECT * FROM teacher WHERE t_id=1   //1 是上一个查询得到的teacher_id的值
+    -->
+    <select id="getClass2" parameterType="int" resultMap="ClassResultMap2">
+        select * from class where c_id=#{id}
+    </select>
+    <!-- 使用resultMap映射实体类和字段之间的一一对应关系 -->
+    <resultMap type="com.shi.mapping.Classes" id="ClassResultMap2">
+        <id property="id" column="c_id"/>
+        <result property="name" column="c_name"/>
+        <association property="teacher" column="teacher_id" select="getTeacher"/>
+    </resultMap>
+
+    <select id="getTeacher" parameterType="int" resultType="com.shi.mapping.Teacher">
+        SELECT t_id id, t_name name FROM teacher WHERE t_id=#{id}
+    </select>
+
+</mapper>
 
 ```
 
@@ -261,7 +315,7 @@ INSERT INTO student(s_name, class_id) VALUES('student_F', 2);
 package com.shi.mybatis;
 
 /**
- * @author gacl
+ * @author AFinalStone
  * 定义student表所对应的实体类
  */
 public class Student {
@@ -302,7 +356,7 @@ package com.shi.mybatis;
 import java.util.List;
 
 /**
- * @author gacl
+ * @author AFinalStone
  * 定义class表对应的实体类
  */
 public class Classes02 {
@@ -390,10 +444,10 @@ public class Classes02 {
         select * from class c, teacher t where c.teacher_id=t.t_id and c.c_id=#{id}
     </select>
     <!-- 使用resultMap映射实体类和字段之间的一一对应关系 -->
-    <resultMap type="com.shi.mapping..Classes" id="ClassResultMap">
+    <resultMap type="com.shi.mapping.Classes" id="ClassResultMap">
         <id property="id" column="c_id"/>
         <result property="name" column="c_name"/>
-        <association property="teacher" javaType="com.shi.mapping..Teacher">
+        <association property="teacher" javaType="com.shi.mapping.Teacher">
             <id property="id" column="t_id"/>
             <result property="name" column="t_name"/>
         </association>
@@ -408,13 +462,13 @@ public class Classes02 {
         select * from class where c_id=#{id}
     </select>
     <!-- 使用resultMap映射实体类和字段之间的一一对应关系 -->
-    <resultMap type="com.shi.mapping..Classes" id="ClassResultMap2">
+    <resultMap type="com.shi.mapping.Classes" id="ClassResultMap2">
         <id property="id" column="c_id"/>
         <result property="name" column="c_name"/>
         <association property="teacher" column="teacher_id" select="getTeacher"/>
     </resultMap>
 
-    <select id="getTeacher" parameterType="int" resultType="com.shi.mapping..Teacher">
+    <select id="getTeacher" parameterType="int" resultType="com.shi.mapping.Teacher">
         SELECT t_id id, t_name name FROM teacher WHERE t_id=#{id}
     </select>
 

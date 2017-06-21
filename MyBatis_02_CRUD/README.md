@@ -15,7 +15,7 @@ MyBatis学习总结(二)——使用MyBatis对表执行CRUD操作
 <mapper namespace="com.shi.mapping.userMapper">
     <!-- 在select标签中编写查询的SQL语句， 设置select标签的id属性为getUser，id属性值必须是唯一的，不能够重复
     使用parameterType属性指明查询时使用的参数类型，resultType属性指明查询返回的结果集类型
-    resultType="com.shi.mapping..User"就表示将查询结果封装成一个User类的对象返回
+    resultType="com.shi.mapping.User"就表示将查询结果封装成一个User类的对象返回
     User类就是users表所对应的实体类
     -->
     <!--
@@ -155,7 +155,7 @@ import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
 /**
- * @author gacl
+ * @author AFinalStone
  * 定义sql映射的接口，使用注解指明方法要执行的SQL
  */
 public interface UserMapperI {

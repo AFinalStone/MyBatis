@@ -9,7 +9,7 @@ import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
 /**
- * @author gacl
+ * @author AFinalStone
  * 定义sql映射的接口，使用注解指明方法要执行的SQL
  */
 public interface UserMapperI {

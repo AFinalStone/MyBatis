@@ -105,12 +105,12 @@ parameterType="com.shi.mybatis.User"这里写的实体类User的全类名com.shi
     insert into users(name,age) values(#{name},#{age})
 </insert>
 ```
-parameterType="_User"这样写就简单多了，为了达到这种效果，我们需要在conf.xml文件中为实体类="com.shi.mapping..User"定义一个别名为"_User"，具体做法如下：
+parameterType="_User"这样写就简单多了，为了达到这种效果，我们需要在conf.xml文件中为实体类="com.shi.mapping.User"定义一个别名为"_User"，具体做法如下：
 　　在conf.xml文件中<configuration></configuration>标签中添加如下配置：
 
 ```xml
 <typeAliases>
-    <typeAlias type="com.shi.mapping..User" alias="_User"/>
+    <typeAlias type="com.shi.mapping.User" alias="_User"/>
 </typeAliases>
 ```
 注意typeAliases的位置，不要放在<configuration/>的头部或者尾部，否则会出错，我这里是放在了properties之后。具体如下：
@@ -209,4 +209,4 @@ parameterType="_User"这样写就简单多了，为了达到这种效果，我�
 
 ```
 
-<package name="com.shi.mybatis"/>就表示为这个包下面的所有实体类设置别名。MyBatis默认的设置别名的方式就是去除类所在的包后的简单的类名，比如com.shi.mapping..User这个实体类的别名就会被设置成User。
+<package name="com.shi.mybatis"/>就表示为这个包下面的所有实体类设置别名。MyBatis默认的设置别名的方式就是去除类所在的包后的简单的类名，比如com.shi.mapping.User这个实体类的别名就会被设置成User。
