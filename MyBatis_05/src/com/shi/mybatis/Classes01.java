@@ -4,7 +4,7 @@ package com.shi.mybatis;
  * @author Afinalstone
  * 定义class表对应的实体类
  */
-public class Classes {
+public class Classes01 {
 
     //定义实体类的属性，与class表中的字段对应
     private int id;            //id===>c_id
@@ -42,6 +42,6 @@ public class Classes {
 
     @Override
     public String toString() {
-        return "Classes [id=" + id + ", name=" + name + ", teacher=" + teacher+ "]";
+        return "Classes01 [id=" + id + ", name=" + name + ", teacher=" + teacher+ "]";
     }
 }
