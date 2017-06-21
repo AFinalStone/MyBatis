@@ -4,20 +4,27 @@
 
     <!-- 引用db.properties配置文件 -->
     <properties resource="db.properties"/>
+
+    <!--不要把typeAliases放在头部或者尾部，否则会报错-->
+    <typeAliases>
+        <!--     <typeAlias type="com.shi.mybatis.User" alias="UserModel"/>-->
+        <package name="com.shi.mybatis"/>
+    </typeAliases>
+
     <!--
         development : 开发模式
         work : 工作模式
      -->
     <environments default="development">
         <environment id="development">
-            <transactionManager type="JDBC" />
+            <transactionManager type="JDBC"/>
             <!-- 配置数据库连接信息 -->
             <dataSource type="POOLED">
                 <!-- value属性值引用db.properties配置文件中配置的值 -->
-                <property name="driver" value="${driver}" />
-                <property name="url" value="${url}" />
-                <property name="username" value="${name}" />
-                <property name="password" value="${password}" />
+                <property name="driver" value="${driver}"/>
+                <property name="url" value="${url}"/>
+                <property name="username" value="${name}"/>
+                <property name="password" value="${password}"/>
             </dataSource>
         </environment>
     </environments>
@@ -30,5 +37,7 @@
         <!-- 注册UserMapper映射接口-->
         <mapper class="com.shi.mapping.UserMapperI"/>
     </mappers>
+
+
 
 </configuration>

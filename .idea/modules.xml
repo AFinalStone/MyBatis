@@ -5,8 +5,7 @@
       <module fileurl="file://$PROJECT_DIR$/MyBatis_01/MyBatis_01.iml" filepath="$PROJECT_DIR$/MyBatis_01/MyBatis_01.iml" />
       <module fileurl="file://$PROJECT_DIR$/MyBatis_02_CRUD/MyBatis_02_CRUD.iml" filepath="$PROJECT_DIR$/MyBatis_02_CRUD/MyBatis_02_CRUD.iml" />
       <module fileurl="file://$PROJECT_DIR$/MyBatis_03/MyBatis_03.iml" filepath="$PROJECT_DIR$/MyBatis_03/MyBatis_03.iml" />
-      <module fileurl="file://$PROJECT_DIR$/MyBatis_01/MyBatis_03_AddProjectAndSimplifyName.iml" filepath="$PROJECT_DIR$/MyBatis_01/MyBatis_03_AddProjectAndSimplifyName.iml" />
-      <module fileurl="file://$PROJECT_DIR$/MyBatis_02_CRUD/MyBatis_03_AddPropertiesAndSimplifyName.iml" filepath="$PROJECT_DIR$/MyBatis_02_CRUD/MyBatis_03_AddPropertiesAndSimplifyName.iml" />
+      <module fileurl="file://$PROJECT_DIR$/MyBatis_04/MyBatis_04.iml" filepath="$PROJECT_DIR$/MyBatis_04/MyBatis_04.iml" />
     </modules>
   </component>
 </project>

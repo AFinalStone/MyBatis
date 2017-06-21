@@ -18,7 +18,7 @@
     </select>
 
     <!-- 创建用户(Create) -->
-    <insert id="addUser" parameterType="com.shi.mybatis.User">
+    <insert id="addUser" parameterType="User">
         insert into users(name,age) values(#{name},#{age})
     </insert>
 
