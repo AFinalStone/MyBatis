@@ -14,7 +14,7 @@
 
 首先右键项目，点击Open Model setting,然后点击右侧的+号，选择jar，添加项目的lib目录
 
-![添加lib](/pic/add_lib.png)
+![添加lib](/pic/open_setting.png)
 
 ![添加jar](/pic/add_lib.png)
 
