@@ -15,9 +15,9 @@ MyBatis学习总结(一)——MyBatis快速入门
 
 首先右键项目，点击Open Model setting,然后点击右侧的+号，选择jar，添加项目的lib目录
 
-![添加lib](/pic/open_setting.png)
+![添加lib](pic/open_setting.png)
 
-![添加jar](/pic/add_lib.png)
+![添加jar](pic/add_lib.png)
 
 添加Mybatis的配置文件conf.xml,在src目录下创建一个conf.xml文件，内容如下：
 
