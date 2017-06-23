@@ -17,3 +17,5 @@
 [MyBatis学习总结(七)——Mybatis缓存](/MyBatis_07)
 
 [MyBatis学习总结(八)——Mybatis3.x与Spring4.x整合](/MyBatis_08)
+
+[原文地址](http://www.cnblogs.com/xdp-gacl/p/4271627.html)
