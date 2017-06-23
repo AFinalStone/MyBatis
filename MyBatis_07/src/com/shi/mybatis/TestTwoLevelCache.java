@@ -5,7 +5,7 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import org.junit.Test;
 
 /**
- * @author gacl
+ * @author AFnaiStone
  * 测试二级缓存
  */
 public class TestTwoLevelCache {

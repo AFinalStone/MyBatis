@@ -6,10 +6,12 @@ import com.shi.service.UserServiceI;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 /**
- * @author gacl
- *         使用@Service注解将UserServiceImpl类标注为一个service
- *         service的id是userService
+ * @author AFinalStone
+ * 使用@Service注解将UserServiceImpl类标注为一个service
+ * service的id是userService
  */
 @Service("userService")
 public class UserServiceImpl implements UserServiceI {
@@ -27,5 +29,9 @@ public class UserServiceImpl implements UserServiceI {
 
     public User getUserById(String userId) {
         return userMapper.selectByPrimaryKey(userId);
+    }
+
+    public List<User> getAllUser() {
+        return userMapper.getAllUser();
     }
 }

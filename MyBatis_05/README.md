@@ -243,10 +243,10 @@ public class Test3 {
         SqlSession sqlSession = MyBatisUtil.getSqlSession();
         /**
          * 映射sql的标识字符串，
-         * me.gacl.mapping.classMapper是classMapper.xml文件中mapper标签的namespace属性的值，
+         * com.shi.mapping.classMapper是classMapper.xml文件中mapper标签的namespace属性的值，
          * getClass是select标签的id属性值，通过select标签的id属性值就可以找到要执行的SQL
          */
-        String statement = "me.gacl.mapping.classMapper.getClass";//映射sql的标识字符串
+        String statement = "com.shi.mapping.classMapper.getClass";//映射sql的标识字符串
         //执行查询操作，将查询结果自动封装成Classes对象返回
         Classes clazz = sqlSession.selectOne(statement,1);//查询class表中id为1的记录
         //使用SqlSession执行完SQL之后需要关闭SqlSession
@@ -259,10 +259,10 @@ public class Test3 {
         SqlSession sqlSession = MyBatisUtil.getSqlSession();
         /**
          * 映射sql的标识字符串，
-         * me.gacl.mapping.classMapper是classMapper.xml文件中mapper标签的namespace属性的值，
+         * com.shi.mapping.classMapper是classMapper.xml文件中mapper标签的namespace属性的值，
          * getClass2是select标签的id属性值，通过select标签的id属性值就可以找到要执行的SQL
          */
-        String statement = "me.gacl.mapping.classMapper.getClass2";//映射sql的标识字符串
+        String statement = "com.shi.mapping.classMapper.getClass2";//映射sql的标识字符串
         //执行查询操作，将查询结果自动封装成Classes对象返回
         Classes clazz = sqlSession.selectOne(statement,1);//查询class表中id为1的记录
         //使用SqlSession执行完SQL之后需要关闭SqlSession
@@ -441,13 +441,14 @@ public class Classes02 {
         select * from class c, teacher t where c.teacher_id=t.t_id and c.c_id=1
     -->
     <select id="getClass" parameterType="int" resultMap="ClassResultMap">
-        select * from class c, teacher t where c.teacher_id=t.t_id and c.c_id=#{id}
+        select * from class c, teacher t where c.teacher_id = t.t_id and c.c_id = #{id}
     </select>
+
     <!-- 使用resultMap映射实体类和字段之间的一一对应关系 -->
-    <resultMap type="com.shi.mapping.Classes" id="ClassResultMap">
+    <resultMap type="com.shi.mybatis.Classes01" id="ClassResultMap">
         <id property="id" column="c_id"/>
         <result property="name" column="c_name"/>
-        <association property="teacher" javaType="com.shi.mapping.Teacher">
+        <association property="teacher" javaType="com.shi.mybatis.Teacher">
             <id property="id" column="t_id"/>
             <result property="name" column="t_name"/>
         </association>
@@ -462,13 +463,13 @@ public class Classes02 {
         select * from class where c_id=#{id}
     </select>
     <!-- 使用resultMap映射实体类和字段之间的一一对应关系 -->
-    <resultMap type="com.shi.mapping.Classes" id="ClassResultMap2">
+    <resultMap type="com.shi.mybatis.Classes01" id="ClassResultMap2">
         <id property="id" column="c_id"/>
         <result property="name" column="c_name"/>
         <association property="teacher" column="teacher_id" select="getTeacher"/>
     </resultMap>
 
-    <select id="getTeacher" parameterType="int" resultType="com.shi.mapping.Teacher">
+    <select id="getTeacher" parameterType="int" resultType="com.shi.mybatis.Teacher">
         SELECT t_id id, t_name name FROM teacher WHERE t_id=#{id}
     </select>
 
@@ -485,15 +486,16 @@ public class Classes02 {
     <select id="getClass3" parameterType="int" resultMap="ClassResultMap3">
         select * from class c, teacher t,student s where c.teacher_id=t.t_id and c.C_id=s.class_id and  c.c_id=#{id}
     </select>
-    <resultMap type="me.gacl.domain.Classes" id="ClassResultMap3">
+
+    <resultMap type="com.shi.mybatis.Classes02" id="ClassResultMap3">
         <id property="id" column="c_id"/>
         <result property="name" column="c_name"/>
-        <association property="teacher" column="teacher_id" javaType="me.gacl.domain.Teacher">
+        <association property="teacher" column="teacher_id" javaType="com.shi.mybatis.Teacher">
             <id property="id" column="t_id"/>
             <result property="name" column="t_name"/>
         </association>
         <!-- ofType指定students集合中的对象类型 -->
-        <collection property="students" ofType="me.gacl.domain.Student">
+       <collection property="students" ofType="com.shi.mybatis.Student">
             <id property="id" column="s_id"/>
             <result property="name" column="s_name"/>
         </collection>
@@ -508,18 +510,18 @@ public class Classes02 {
     <select id="getClass4" parameterType="int" resultMap="ClassResultMap4">
         select * from class where c_id=#{id}
     </select>
-    <resultMap type="me.gacl.domain.Classes" id="ClassResultMap4">
+    <resultMap type="com.shi.mybatis.Classes02" id="ClassResultMap4">
         <id property="id" column="c_id"/>
         <result property="name" column="c_name"/>
-        <association property="teacher" column="teacher_id" javaType="me.gacl.domain.Teacher" select="getTeacher2"></association>
-        <collection property="students" ofType="me.gacl.domain.Student" column="c_id" select="getStudent"></collection>
+        <association property="teacher" column="teacher_id" javaType="com.shi.mybatis.Teacher" select="getTeacher2"></association>
+        <collection property="students" ofType="com.shi.mybatis.Student" column="c_id" select="getStudent"></collection>
     </resultMap>
 
-    <select id="getTeacher2" parameterType="int" resultType="me.gacl.domain.Teacher">
+    <select id="getTeacher2" parameterType="int" resultType="com.shi.mybatis.Teacher">
         SELECT t_id id, t_name name FROM teacher WHERE t_id=#{id}
     </select>
 
-    <select id="getStudent" parameterType="int" resultType="me.gacl.domain.Student">
+    <select id="getStudent" parameterType="int" resultType="com.shi.mybatis.Student">
         SELECT s_id id, s_name name FROM student WHERE class_id=#{id}
     </select>
 </mapper>
@@ -534,17 +536,17 @@ import org.apache.ibatis.session.SqlSession;
 import org.junit.Test;
 import org.junit.internal.Classes;
 
-public class Test4 {
-    
+public class Test02 {
+
     @Test
     public void testGetClass3(){
         SqlSession sqlSession = MyBatisUtil.getSqlSession();
         /**
          * 映射sql的标识字符串，
-         * me.gacl.mapping.classMapper是classMapper.xml文件中mapper标签的namespace属性的值，
+         * com.shi.mapping.classMapper是classMapper.xml文件中mapper标签的namespace属性的值，
          * getClass3是select标签的id属性值，通过select标签的id属性值就可以找到要执行的SQL
          */
-        String statement = "me.gacl.mapping.classMapper.getClass3";//映射sql的标识字符串
+        String statement = "com.shi.mapping.classMapper.getClass3";//映射sql的标识字符串
         //执行查询操作，将查询结果自动封装成Classes对象返回
         Classes clazz = sqlSession.selectOne(statement,1);//查询class表中id为1的记录
         //使用SqlSession执行完SQL之后需要关闭SqlSession
@@ -552,16 +554,16 @@ public class Test4 {
         //打印结果：Classes [id=1, name=class_a, teacher=Teacher [id=1, name=teacher1], students=[Student [id=1, name=student_A], Student [id=2, name=student_B], Student [id=3, name=student_C]]]
         System.out.println(clazz);
     }
-    
+
     @Test
     public void testGetClass4(){
         SqlSession sqlSession = MyBatisUtil.getSqlSession();
         /**
          * 映射sql的标识字符串，
-         * me.gacl.mapping.classMapper是classMapper.xml文件中mapper标签的namespace属性的值，
+         * com.shi.mapping.classMapper是classMapper.xml文件中mapper标签的namespace属性的值，
          * getClass4是select标签的id属性值，通过select标签的id属性值就可以找到要执行的SQL
          */
-        String statement = "me.gacl.mapping.classMapper.getClass4";//映射sql的标识字符串
+        String statement = "com.shi.mapping.classMapper.getClass4";//映射sql的标识字符串
         //执行查询操作，将查询结果自动封装成Classes对象返回
         Classes clazz = sqlSession.selectOne(statement,1);//查询class表中id为1的记录
         //使用SqlSession执行完SQL之后需要关闭SqlSession

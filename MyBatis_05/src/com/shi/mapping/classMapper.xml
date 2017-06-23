@@ -75,10 +75,10 @@
             <result property="name" column="t_name"/>
         </association>
         <!-- ofType指定students集合中的对象类型 -->
-    <!--    <collection property="students" ofType="com.shi.mybatis.Student">
+     <collection property="students" ofType="com.shi.mybatis.Student">
             <id property="id" column="s_id"/>
             <result property="name" column="s_name"/>
-        </collection>-->
+        </collection>
     </resultMap>
 
     <!--

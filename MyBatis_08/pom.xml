@@ -1,7 +1,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>me.gacl</groupId>
+  <groupId>com.shi</groupId>
   <artifactId>spring4-mybatis3</artifactId>
   <packaging>war</packaging>
   <version>1.0-SNAPSHOT</version>
@@ -98,9 +98,15 @@
       <version>4.12</version>
       <scope>test</scope>
     </dependency>
+      <dependency>
+          <groupId>org.junit.jupiter</groupId>
+          <artifactId>junit-jupiter-api</artifactId>
+          <version>RELEASE</version>
+      </dependency>
   </dependencies>
   <build>
     <finalName>spring4-mybatis3</finalName>
+    <!--上面的部分主要是为了添加项目jar包依赖，这部分代码主要是为了集成generator插件-->
     <plugins>
       <plugin>
         <groupId>org.mybatis.generator</groupId>

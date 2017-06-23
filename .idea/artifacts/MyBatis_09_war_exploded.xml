@@ -5,7 +5,7 @@
       <element id="javaee-facet-resources" facet="MyBatis_09/web/Web" />
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
-          <element id="module-output" name="MyBatis_09" />
+          <element id="module-output" name="MyBatis_08" />
         </element>
       </element>
     </root>

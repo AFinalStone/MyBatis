@@ -1,5 +1,3 @@
-只为成功找方法，不为失败找借口！
-
 ### MyBatis学习总结(七)——Mybatis缓存
 
 #### 一、MyBatis缓存介绍
@@ -79,7 +77,7 @@ public class TestOneLevelCache {
 　　1、开启二级缓存，在userMapper.xml文件中添加如下配置
 
 ```xml
-<mapper namespace="me.gacl.mapping.userMapper">
+<mapper namespace="com.shi.mapping.userMapper">
 <!-- 开启二级缓存 -->
 <cache/>
 </mapper>
@@ -99,7 +97,7 @@ public class TestOneLevelCache {
 　　5. 缓存会存储1024个对象
 
 cache标签常用属性：
-```xml
+```
 
 <cache 
 eviction="FIFO"  <!--回收策略为先进先出-->

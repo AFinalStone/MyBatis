@@ -3,6 +3,8 @@ package com.shi.service;
 
 import com.shi.domain.User;
 
+import java.util.List;
+
 public interface UserServiceI {
 
     /**
@@ -17,4 +19,9 @@ public interface UserServiceI {
      * @return
      */
     User getUserById(String userId);
+
+    /**获取所有用户信息
+     * @return List<User>
+     */
+    List<User> getAllUser();
 }
