@@ -46,7 +46,7 @@ password=123456
 
 具体配置信息如下图所示：
 
- ![添加properties](/pic/properties.png)
+ ![添加properties](pic/properties.png)
  
 　2、在MyBatis的conf.xml文件中引用db.properties文件，如下：
 

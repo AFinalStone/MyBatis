@@ -33,7 +33,7 @@ INSERT INTO class(c_name, teacher_id) VALUES('class_b', 2);
 
 　表之间的关系如下：
 
-![关系图](https://raw.githubusercontent.com/AFinalStone/MyBatis/master/MyBatis_05/pic/relationship.png)
+![关系图](pic/relationship.png)
 
 1.3、定义实体类
 
@@ -305,7 +305,7 @@ INSERT INTO student(s_name, class_id) VALUES('student_E', 2);
 INSERT INTO student(s_name, class_id) VALUES('student_F', 2);
 ```
 
-![关系图](https://raw.githubusercontent.com/AFinalStone/MyBatis/master/MyBatis_05/pic/relationship02.png)
+![关系图](pic/relationship02.png)
 
 2.3、定义实体类
 

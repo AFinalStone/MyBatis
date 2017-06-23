@@ -188,4 +188,4 @@ public class Main {
 
 - 最后看一下项目整体结构图以及输出结果，到这里我们在项目中成功使用了MyBatis框架：
 
-![项目结构图](/pic/project_struct.png)
+![项目结构图](pic/project_struct.png)

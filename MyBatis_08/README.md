@@ -3,7 +3,7 @@ MyBatis学习总结(八)——Mybatis3.x与Spring4.x整合
 #### 一、搭建开发环境
 1.1、使用IDEA新建一个项目，项目结构如下：
 
-   ![项目结构](/pic/01.png)
+   ![项目结构](pic/01.png)
 
 其中用到的pox.xml内容：
 
@@ -200,7 +200,7 @@ CREATE TABLE user (
 
 ```
 运行之前配置好的generator_08插件，会在项目的java目录中根据创建好的数据库表生成MyBatis的表对应的实体类:
-![实体类](/pic/06.png)
+![实体类](pic/06.png)
 
 生成的代码和映射文件一般都不用改，可以直接应用到项目当中。下面我们看一眼由generator插件生成的代码和映射文件：
 
@@ -617,7 +617,7 @@ http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
 </beans>
 ```
 注意：需要我们把pom.xml依赖添加到项目当中
-![添加pom.xml](/pic/08.png)
+![添加pom.xml](pic/08.png)
 
 4.3 进行单元测试
 
