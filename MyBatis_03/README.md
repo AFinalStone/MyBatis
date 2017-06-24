@@ -51,7 +51,7 @@ password=123456
 
 具体配置信息如下图所示：
 
- ![添加properties](https://raw.githubusercontent.com/AFinalStone/MyBatis/master/MyBatis_01/pic/properties.png)
+ ![添加properties](https://raw.githubusercontent.com/AFinalStone/MyBatis/master/MyBatis_03/pic/properties.png)
  
 　2、在MyBatis的conf.xml文件中引用db.properties文件，如下：
 
