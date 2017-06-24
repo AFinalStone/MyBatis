@@ -3,6 +3,8 @@ MyBatis学习总结(三)——优化MyBatis配置文件中的配置
 >[github同步更新](https://github.com/AFinalStone?tab=repositories)
 [博客同步更新](http://blog.csdn.net/abc6368765)
 [简书同步更新](http://www.jianshu.com/u/0e4907a8f36b)
+
+
 项目地址:[传送门](https://github.com/AFinalStone/MyBatis)
 
 一、连接数据库的配置单独放在一个properties文件中
