@@ -1,4 +1,11 @@
 MyBatis学习总结(一)——MyBatis快速入门
+
+>[github同步更新](https://github.com/AFinalStone?tab=repositories)
+[博客同步更新](http://blog.csdn.net/abc6368765)
+[简书同步更新](http://www.jianshu.com/u/0e4907a8f36b)
+
+[参考原文地址](http://www.cnblogs.com/xdp-gacl/p/4261895.html)
+
 - 1、创建表结构
 
 ```SQL
@@ -188,4 +195,8 @@ public class Main {
 
 - 最后看一下项目整体结构图以及输出结果，到这里我们在项目中成功使用了MyBatis框架：
 
+
+
 ![项目结构图](pic/project_struct.png)
+
+项目地址:[传送门](https://github.com/AFinalStone/MyBatis)

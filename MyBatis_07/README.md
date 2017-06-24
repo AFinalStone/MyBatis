@@ -1,5 +1,11 @@
 ### MyBatis学习总结(七)——Mybatis缓存
 
+>[github同步更新](https://github.com/AFinalStone?tab=repositories)
+[博客同步更新](http://blog.csdn.net/abc6368765)
+[简书同步更新](http://www.jianshu.com/u/0e4907a8f36b)
+[参考原文地址](http://www.cnblogs.com/xdp-gacl/p/4261895.html)
+项目地址:[传送门](https://github.com/AFinalStone/MyBatis)
+
 #### 一、MyBatis缓存介绍
 
 　　正如大多数持久层框架一样，MyBatis 同样提供了一级缓存和二级缓存的支持

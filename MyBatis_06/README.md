@@ -1,6 +1,12 @@
 
 ### MyBatis学习总结(六)——调用存储过程
 
+>[github同步更新](https://github.com/AFinalStone?tab=repositories)
+[博客同步更新](http://blog.csdn.net/abc6368765)
+[简书同步更新](http://www.jianshu.com/u/0e4907a8f36b)
+[参考原文地址](http://www.cnblogs.com/xdp-gacl/p/4261895.html)
+项目地址:[传送门](https://github.com/AFinalStone/MyBatis)
+
 #### 一、提出需求
 　　查询得到男性或女性的数量, 如果传入的是0就女性否则是男性
 

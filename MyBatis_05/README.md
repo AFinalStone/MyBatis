@@ -1,5 +1,11 @@
 ### MyBatis学习总结(五)——实现关联表查询
 
+>[github同步更新](https://github.com/AFinalStone?tab=repositories)
+[博客同步更新](http://blog.csdn.net/abc6368765)
+[简书同步更新](http://www.jianshu.com/u/0e4907a8f36b)
+[参考原文地址](http://www.cnblogs.com/xdp-gacl/p/4261895.html)
+项目地址:[传送门](https://github.com/AFinalStone/MyBatis)
+
 #### 一、一对一关联
 
 1.1、提出需求

@@ -1,5 +1,11 @@
 MyBatis学习总结(四)——解决字段名与实体类属性名不相同的冲突
 
+>[github同步更新](https://github.com/AFinalStone?tab=repositories)
+[博客同步更新](http://blog.csdn.net/abc6368765)
+[简书同步更新](http://www.jianshu.com/u/0e4907a8f36b)
+[参考原文地址](http://www.cnblogs.com/xdp-gacl/p/4261895.html)
+项目地址:[传送门](https://github.com/AFinalStone/MyBatis)
+
 　　在平时的开发中，我们表中的字段名和表对应实体类的属性名称不一定都是完全相同的，下面来演示一下这种情况下的如何解决字段名与实体类属性名不相同的冲突。
 
 #### 一、准备演示需要使用的表和数据
