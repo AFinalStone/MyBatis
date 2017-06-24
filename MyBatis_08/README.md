@@ -3,13 +3,12 @@ MyBatis学习总结(八)——Mybatis3.x与Spring4.x整合
 >[github同步更新](https://github.com/AFinalStone?tab=repositories)
 [博客同步更新](http://blog.csdn.net/abc6368765)
 [简书同步更新](http://www.jianshu.com/u/0e4907a8f36b)
-[参考原文地址](http://www.cnblogs.com/xdp-gacl/p/4261895.html)
 项目地址:[传送门](https://github.com/AFinalStone/MyBatis)
 
 #### 一、搭建开发环境
 1.1、使用IDEA新建一个项目，项目结构如下：
 
-   ![项目结构](pic/01.png)
+   ![项目结构](https://raw.githubusercontent.com/AFinalStone/MyBatis/master/MyBatis_01/pic/01.png)
 
 其中用到的pox.xml内容：
 
@@ -136,7 +135,7 @@ pox.xml主要分两大部分，上面的10行-111行主要是为了添加项目j
 
 1.2、右键项目，选择open module setting，点击左上角的+符号，选择maven，添加generator插件
 
-![添加generator插件](pic/02.png)
+![添加generator插件](https://raw.githubusercontent.com/AFinalStone/MyBatis/master/MyBatis_01/pic/02.png)
 
 #### 二、创建数据库和表(针对MySQL)
 
@@ -157,13 +156,13 @@ CREATE TABLE user (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 ```
-![表结构](pic/03.png)
+![表结构](https://raw.githubusercontent.com/AFinalStone/MyBatis/master/MyBatis_01/pic/03.png)
 
 #### 三、使用generator生成数据库映射代码
 
 2.2 手动创建【src/main/resources】、【src/main/java】、【src/test/resources】、【src/test/java】这几个source folder，如下图所示：
 
-![目录结构](pic/04.png)
+![目录结构](https://raw.githubusercontent.com/AFinalStone/MyBatis/master/MyBatis_01/pic/04.png)
 
 2.3 在main/resources中添加generatorConfig.xml文件
 
@@ -206,7 +205,7 @@ CREATE TABLE user (
 
 ```
 运行之前配置好的generator_08插件，会在项目的java目录中根据创建好的数据库表生成MyBatis的表对应的实体类:
-![实体类](pic/06.png)
+![实体类](https://raw.githubusercontent.com/AFinalStone/MyBatis/master/MyBatis_01/pic/06.png)
 
 生成的代码和映射文件一般都不用改，可以直接应用到项目当中。下面我们看一眼由generator插件生成的代码和映射文件：
 
@@ -380,7 +379,7 @@ public class User {
 
 　　2、UserMapper.xml的定义操作数据库的<select><delete><update><insert>这些标签的id属性的值必须和UserMapper接口定义的方法名一致，如下图所示：
 
- ![对应关系](pic/07.png)
+ ![对应关系](https://raw.githubusercontent.com/AFinalStone/MyBatis/master/MyBatis_01/pic/07.png)
  
  #### 四、Spring与MyBatis整合
  
@@ -623,7 +622,7 @@ http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
 </beans>
 ```
 注意：需要我们把pom.xml依赖添加到项目当中
-![添加pom.xml](pic/08.png)
+![添加pom.xml](https://raw.githubusercontent.com/AFinalStone/MyBatis/master/MyBatis_01/pic/08.png)
 
 4.3 进行单元测试
 

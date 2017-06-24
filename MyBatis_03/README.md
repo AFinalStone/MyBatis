@@ -3,9 +3,8 @@ MyBatis学习总结(三)——优化MyBatis配置文件中的配置
 >[github同步更新](https://github.com/AFinalStone?tab=repositories)
 [博客同步更新](http://blog.csdn.net/abc6368765)
 [简书同步更新](http://www.jianshu.com/u/0e4907a8f36b)
-
-[参考原文地址](http://www.cnblogs.com/xdp-gacl/p/4261895.html)
 项目地址:[传送门](https://github.com/AFinalStone/MyBatis)
+
 一、连接数据库的配置单独放在一个properties文件中
 　　之前，我们是直接将数据库的连接配置信息写在了MyBatis的conf.xml文件中，如下：
 
@@ -52,7 +51,7 @@ password=123456
 
 具体配置信息如下图所示：
 
- ![添加properties](pic/properties.png)
+ ![添加properties](https://raw.githubusercontent.com/AFinalStone/MyBatis/master/MyBatis_01/pic/properties.png)
  
 　2、在MyBatis的conf.xml文件中引用db.properties文件，如下：
 
