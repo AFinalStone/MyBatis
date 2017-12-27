@@ -12,10 +12,19 @@ MyBatis学习总结(一)——MyBatis快速入门
 
         create database mybatis;
         use mybatis;
-        CREATE TABLE users(id INT PRIMARY KEY AUTO_INCREMENT, NAME VARCHAR(20), age INT);
+        CREATE TABLE users(id INT PRIMARY KEY AUTO_INCREMENT, NAME VARCHAR(20), age INT)ENGINE=InnoDB DEFAULT CHARSET=utf8;
         INSERT INTO users(NAME, age) VALUES('wolf', 27);
         INSERT INTO users(NAME, age) VALUES('tiger', 27);
-        
+        INSERT INTO users(NAME, age) VALUES('小红书', 55);  
+```
+若出现：
+
+```error
+Data too long for column 'NAME' at row 1
+```
+则：在当前选择是数据库下面(use mybatis)：
+```
+set names gbk;
 ```
 
 - 2、环境配置
@@ -199,3 +208,12 @@ public class Main {
 ![项目结构图](https://raw.githubusercontent.com/AFinalStone/MyBatis/master/MyBatis_01/pic/project_struct.png)
 
 项目地址:[传送门](https://github.com/AFinalStone/MyBatis)
+
+注意： 
+jdbc连接mysql数据库的时候，设置字符集编码!!! 
+可以如下配置，mysql可直接在url后面加上字符集设置：
+
+String url = “jdbc:mysql://localhost:3306/exceltest1?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull”;
+
+Mybatis连接mysql数据库的时候，设置字符集编码!!! 
+可以如下配置，Mybatis的配置文件中要这样写：（注意要用转义 & 代替&）
