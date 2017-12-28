@@ -1,10 +1,13 @@
-package com.shi.mybatis;
+package com.shi.mapping.demo01;
 
 import java.util.List;
+
+import com.shi.mybatis.MyBatisUtil;
+import com.shi.mybatis.User;
 import org.apache.ibatis.session.SqlSession;
 import org.junit.Test;
 
-public class TestCRUDByXmlMapper {
+public class TestCRUD {
 
     @Test
     public void testAdd(){
@@ -12,10 +15,10 @@ public class TestCRUDByXmlMapper {
         SqlSession sqlSession = MyBatisUtil.getSqlSession(true);
         /**
          * 映射sql的标识字符串，
-         * com.shi.mapping.userMapper是userMapper.xml文件中mapper标签的namespace属性的值，
+         * com.shi.mapping.demo01.userMapper是userMapper.xml文件中mapper标签的namespace属性的值，
          * addUser是insert标签的id属性值，通过insert标签的id属性值就可以找到要执行的SQL
          */
-        String statement = "com.shi.mapping.userMapper.addUser";//映射sql的标识字符串
+        String statement = "com.shi.mapping.demo01.userMapper.addUser";//映射sql的标识字符串
         User user = new User();
         user.setName("用户孤傲苍狼");
         user.setAge(20);
@@ -33,10 +36,10 @@ public class TestCRUDByXmlMapper {
         SqlSession sqlSession = MyBatisUtil.getSqlSession(true);
         /**
          * 映射sql的标识字符串，
-         * com.shi.mapping.userMapper是userMapper.xml文件中mapper标签的namespace属性的值，
+         * com.shi.mapping.demo01.userMapper是userMapper.xml文件中mapper标签的namespace属性的值，
          * updateUser是update标签的id属性值，通过update标签的id属性值就可以找到要执行的SQL
          */
-        String statement = "com.shi.mapping.userMapper.updateUser";//映射sql的标识字符串
+        String statement = "com.shi.mapping.demo01.userMapper.updateUser";//映射sql的标识字符串
         User user = new User();
         user.setId(3);
         user.setName("孤傲苍狼");
@@ -53,10 +56,10 @@ public class TestCRUDByXmlMapper {
         SqlSession sqlSession = MyBatisUtil.getSqlSession(true);
         /**
          * 映射sql的标识字符串，
-         * com.shi.mapping.userMapper是userMapper.xml文件中mapper标签的namespace属性的值，
+         * com.shi.mapping.demo01.userMapper是userMapper.xml文件中mapper标签的namespace属性的值，
          * deleteUser是delete标签的id属性值，通过delete标签的id属性值就可以找到要执行的SQL
          */
-        String statement = "com.shi.mapping.userMapper.deleteUser";//映射sql的标识字符串
+        String statement = "com.shi.mapping.demo01.userMapper.deleteUser";//映射sql的标识字符串
         //执行删除操作
         int retResult = sqlSession.delete(statement,5);
         //使用SqlSession执行完SQL之后需要关闭SqlSession
@@ -69,10 +72,10 @@ public class TestCRUDByXmlMapper {
         SqlSession sqlSession = MyBatisUtil.getSqlSession();
         /**
          * 映射sql的标识字符串，
-         * com.shi.mapping.userMapper是userMapper.xml文件中mapper标签的namespace属性的值，
+         * com.shi.mapping.demo01.userMapper是userMapper.xml文件中mapper标签的namespace属性的值，
          * getAllUsers是select标签的id属性值，通过select标签的id属性值就可以找到要执行的SQL
          */
-        String statement = "com.shi.mapping.userMapper.getAllUsers";//映射sql的标识字符串
+        String statement = "com.shi.mapping.demo01.userMapper.getAllUsers";//映射sql的标识字符串
         //执行查询操作，将查询结果自动封装成List<User>返回
         List<User> lstUsers = sqlSession.selectList(statement);
         //使用SqlSession执行完SQL之后需要关闭SqlSession

@@ -1,4 +1,4 @@
-package com.shi.mapping;
+package com.shi.mapping.demo03;
 
 import java.util.List;
 
@@ -12,7 +12,7 @@ import org.apache.ibatis.annotations.Update;
  * @author AFinalStone
  * 定义sql映射的接口，使用注解指明方法要执行的SQL
  */
-public interface UserMapperI {
+public interface UserMapperIByNote {
 
     //使用@Insert注解指明add方法要执行的SQL
     @Insert("insert into users(name, age) values(#{name}, #{age})")

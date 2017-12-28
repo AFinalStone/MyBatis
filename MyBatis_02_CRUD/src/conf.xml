@@ -18,9 +18,10 @@
     <mappers>
         <!-- 注册userMapper.xml文件，
         userMapper.xml位于com.shi.mapping这个包下，所以resource写成com/shi/mapping/userMapper.xml-->
-        <mapper resource="com/shi/mapping/userMapper.xml"/>
+        <mapper resource="com/shi/mapping/demo01/userMapper.xml"/>
+        <mapper resource="com/shi/mapping/demo02/userMapper.xml"/>
         <!-- 注册UserMapper映射接口-->
-        <mapper class="com.shi.mapping.UserMapperI"/>
+        <mapper class="com.shi.mapping.demo03.UserMapperIByNote"/>
     </mappers>
 
 </configuration>
